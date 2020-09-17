@@ -1,16 +1,16 @@
 <template>
   <v-app>
-      <Header/>
+      <HeaderComponent/>
   </v-app>
 </template>
 
 <script>
 
-import Header from '@/components/Header'
+import HeaderComponent from '@/components/HeaderComponent'
 export default {
   name: 'App',
   components: {
-    Header
+    HeaderComponent
     
   },
 

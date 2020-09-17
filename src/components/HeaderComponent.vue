@@ -1,6 +1,6 @@
 <template>
 <v-app>
-    <nav :style="{ background: background || '#FFFFFF' }">
+    <nav>
         <div class="menu-logo"><img class="HeaderLogo" src="https://i.otzovik.com/objects/b/10000/7082.png" alt=""></div>
         <div class="menu-item" @mouseenter='isOpen=true' @mouseleave='isOpen=false'><a href="">Аренда</a></div>
         <div class="menu-item"><a href="">Карта</a></div>
@@ -10,24 +10,30 @@
         <div class="menu-item" id="HeaderIcon"><v-icon >{{ svgBell }}</v-icon></div>
         <div class="menu-item" id="HeaderPost"><a class="PostLink" href="">+ Разместить объявление</a></div>
         <div class="menu-item" id="HeaderSignIn"><a class="SignLink" href="">Войти</a></div>
+
     </nav>
     <div class='sub-menu' v-if="isOpen" @mouseenter='isOpen=true' @mouseleave='isOpen=false'>
     <div class="sub-menu-container" ><li v-for="i in services" :key="i.title">{{i.title}}</li></div>
+    <ul>
+        <li v-for="(test,index) in test_req" :key="index">
+            {{ test_req }}
+        </li>
+    </ul>
     </div>
 </v-app>
 </template>
 
 <script>
-    import { mdiHeartOutline, mdiBellOutline } from '@mdi/js'
+    import axios from 'axios';
+    import { mdiHeartOutline, mdiBellOutline } from '@mdi/js';
     export default {
-        name: 'header',
-        props: ['title', 'items'],
         components: {
             
     
         },
         data: () => ({
             isOpen: false,
+            test_req: [],
             services: [
                 {
                     title: 'Квартиры',
@@ -45,11 +51,19 @@
             svgHeart: mdiHeartOutline,
             svgBell: mdiBellOutline
         }),
+
+        mounted() {
+            axios
+            .get('http://185.251.91.134/api')
+            .then(response => this.test_req = response.data)
+        }
+        
     }
 </script>
 
 <style scoped lang="scss">
     nav {
+        background: '#FFFFFF';
         height: 60px;
         width: 100%;
         display: flex;
