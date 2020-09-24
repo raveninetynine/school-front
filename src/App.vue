@@ -1,7 +1,7 @@
 <template>
   <v-app>
       <HeaderComponent/>
-      <v-content>
+      <v-main>
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -9,7 +9,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
 
     <v-footer>
       <span>&copy; 2020 Nedocigan</span>

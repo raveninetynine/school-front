@@ -24,7 +24,7 @@
 </template>
 
 <script>
-    import axios from 'axios';
+    // import axios from 'axios';
     import { mdiHeartOutline, mdiBellOutline } from '@mdi/js';
     export default {
         components: {
@@ -53,9 +53,6 @@
         }),
 
         mounted() {
-            axios
-            .get('http://185.251.91.134/api')
-            .then(response => this.test_req = response.data)
         }
         
     }
