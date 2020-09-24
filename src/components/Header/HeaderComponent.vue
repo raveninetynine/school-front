@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<div class="header">
     <nav>
         <div class="menu-logo"><img class="HeaderLogo" src="https://i.otzovik.com/objects/b/10000/7082.png" alt=""></div>
         <div class="menu-item" @mouseenter='isOpen=true' @mouseleave='isOpen=false'><a href="">Аренда</a></div>
@@ -20,7 +20,7 @@
         </li>
     </ul>
     </div>
-</v-app>
+</div>
 </template>
 
 <script>
