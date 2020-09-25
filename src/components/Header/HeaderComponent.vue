@@ -1,5 +1,5 @@
 <template>
-<v-app>
+<div class="header">
     <nav>
         <div class="menu-logo"><img class="HeaderLogo" src="https://i.otzovik.com/objects/b/10000/7082.png" alt=""></div>
         <div class="menu-item" @mouseenter='isOpen=true' @mouseleave='isOpen=false'><a href="">Аренда</a></div>
@@ -20,11 +20,11 @@
         </li>
     </ul>
     </div>
-</v-app>
+</div>
 </template>
 
 <script>
-    import axios from 'axios';
+    // import axios from 'axios';
     import { mdiHeartOutline, mdiBellOutline } from '@mdi/js';
     export default {
         components: {
@@ -53,9 +53,6 @@
         }),
 
         mounted() {
-            axios
-            .get('http://185.251.91.134/api')
-            .then(response => this.test_req = response.data)
         }
         
     }
