@@ -1,7 +1,10 @@
 <template>
 <div class="header">
     <nav>
-        <div class="menu-logo"><img class="HeaderLogo" src="https://i.otzovik.com/objects/b/10000/7082.png" alt=""></div>
+        <div class="menu-logo"
+        link
+        to='/'
+        ><img class="HeaderLogo" src="https://i.otzovik.com/objects/b/10000/7082.png" alt=""></div>
         <div class="menu-item" @mouseenter='isOpen=true' @mouseleave='isOpen=false'><a href="">Аренда</a></div>
         <div class="menu-item"><a href="">Карта</a></div>
         <div class="menu-item"><a href="">Поиск соседа</a></div>
@@ -9,7 +12,7 @@
         <div class="menu-item" id="HeaderIcon"><v-icon >{{ svgHeart }}</v-icon></div>
         <div class="menu-item" id="HeaderIcon"><v-icon >{{ svgBell }}</v-icon></div>
         <div class="menu-item" id="HeaderPost"><a class="PostLink" href="">+ Разместить объявление</a></div>
-        <div class="menu-item" id="HeaderSignIn"><a class="SignLink" href="">Войти</a></div>
+        <div class="menu-item" id="HeaderSignIn"><a class="SignLink" href="/login">Войти</a></div>
 
     </nav>
     <div class='sub-menu' v-if="isOpen" @mouseenter='isOpen=true' @mouseleave='isOpen=false'>
@@ -24,7 +27,6 @@
 </template>
 
 <script>
-    // import axios from 'axios';
     import { mdiHeartOutline, mdiBellOutline } from '@mdi/js';
     export default {
         components: {
