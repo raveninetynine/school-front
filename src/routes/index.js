@@ -21,14 +21,14 @@ const routes = [
         path: '/snus',
         component: SearchHomeComponent,
     },
-
+    {
         path: '/login',
         component: LoginComponent,
     },
     {
         path: '/signup',
         component: SignupComponent,
-    }
+    },
 ];
 
 export default new VueRouter({

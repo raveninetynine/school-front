@@ -19,12 +19,34 @@
 </template>
 
 <script>
+ import axios from 'axios';
 import card from './Componentss/Cards/Card';
 export default {
     components: {
         card
     },
+    mounted(){
+      this.testAPI();
+    },
+    methods: {
+             testAPI() {
+              const headers ={
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                  }
+              axios
+              .get(this.backUrlProd+'/lot', {headers:headers})
+              .then(response => (console.log(response.data)))
+              .catch((error) => {
+                    console.log(error.response);
+                    
+                });
+
+            }
+    },
     data:() => ({
+
+      backUrlLocal: "http://127.0.0.1:80/api/",
+      backUrlProd: "http://185.251.91.134/api",
       items: [
           {
             title:"Хата Вани Лапшина",
@@ -41,7 +63,8 @@ export default {
             text:"КСАНТАРЕС ПИК",
             text_muted:"778878787 эло"
           }
-      ]
+      ],
+    
     }),
 }
 </script>
