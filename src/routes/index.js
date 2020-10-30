@@ -18,7 +18,7 @@ const routes = [
         component: ApiTestComponent,
     },
     {
-        path: '/snus',
+        path: '/lots',
         component: SearchHomeComponent,
     },
     {
