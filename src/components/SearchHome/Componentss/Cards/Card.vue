@@ -7,10 +7,9 @@
       </div>
       <div class="col-md-8">
         <div class="card-body">
-          <h5 class="card-title">{{card.title}}</h5>
-          <p class="card-text">{{card.text}}</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo aspernatur expedita molestiae ut voluptates voluptate rem, officiis sit quam nam accusantium quidem debitis porro libero quod voluptatum adipisci quia autem. Commodi vitae natus at quia inventore quam ex ab perspiciatis?</p>
-          <p class="card-text"><small class="text-muted">{{card.text_muted}}</small></p>
+          <h5 class="card-title">{{card.metro}}</h5>
+          <p class="card-text">{{card.address}}</p>
+          <p class="card-text"><small class="text-muted">{{card.metro}}</small></p>
         </div>
       </div>
     </div>
