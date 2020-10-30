@@ -12,9 +12,15 @@
 </div>
 <card :cards="items">
 </card>
-  <div class="SearchHome">
-        <h1>...</h1>
-    </div>
+<div class='align-items-center'>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item"><a class="page-link" @click="backStep()">Previous</a></li>
+      <li v-for="n in pageNum" :key="n"><a class="page-link" @click='testAPI(5,n)'>{{n}}</a></li>
+      <li class="page-item"><a class="page-link" @click="nextStep()">Next</a></li>
+    </ul>
+  </nav>
+</div>
 </div>
 </template>
 
@@ -26,46 +32,57 @@ export default {
         card
     },
     mounted(){
-      this.testAPI();
+      this.testAPI(this.itemLimit,this.curPageNum);
     },
+     data:() => ({
+
+      backUrlLocal: "http://127.0.0.1:80/api/",
+      backUrlProd: "http://185.251.91.134/api/",
+      pageNum: '',
+      curPageNum: '1',
+      itemLimit: '5',
+      items: [],
+    
+    }),
     methods: {
-             testAPI() {
-              const headers ={
-                      'Content-Type': 'application/x-www-form-urlencoded',
-                  }
+            
+            nextStep() {
+              if(this.curPageNum < this.pageNum){
+                  this.curPageNum++;
+                  this.testAPI(this.itemLimit,this.curPageNum);
+              }
+            },
+
+            backStep() {
+              if(this.curPageNum > 1){
+                  this.curPageNum--;
+                  this.testAPI(this.itemLimit,this.curPageNum);
+              }
+             },
+
+             testAPI(lim,offs) {
               axios
-              .get(this.backUrlProd+'/lot', {headers:headers})
-              .then(response => (console.log(response.data)))
+
+              .get(this.backUrlProd+'lot', {
+                params: {
+                  limit: lim,
+                  offset: offs,
+                }
+              })
+
+              .then((response) => {
+                this.curPageNum = response.data.result.curr_page;
+                this.pageNum = response.data.result.num_pages;
+                this.items = response.data.result.data;
+                console.log(this.curPageNum);
+              })
+
               .catch((error) => {
-                    console.log(error.response);
-                    
+                    console.log(error.response);   
                 });
 
             }
     },
-    data:() => ({
-
-      backUrlLocal: "http://127.0.0.1:80/api/",
-      backUrlProd: "http://185.251.91.134/api",
-      items: [
-          {
-            title:"Хата Вани Лапшина",
-            text:"Голова члена",
-            text_muted:"ОЛулаоуцлоащшцрущшарощйшуоащйшуоащшйцоаущзшцйоуащзшоцйузщшаолзщцшукоащзшцфыуоупщшцуорпщ0зшцуопщзшцйопщшцйопщшйцопщзйцпощзйпойщзпшо"
-          },
-          {
-            title:"Моя хата",
-            text:"Запасной план",
-            text_muted:"0.5 эло"
-          },
-          {
-            title:"Хата Сани Схемова",
-            text:"КСАНТАРЕС ПИК",
-            text_muted:"778878787 эло"
-          }
-      ],
-    
-    }),
 }
 </script>
 
