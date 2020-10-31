@@ -5,7 +5,7 @@ import SearchHomeComponent from "@/components/SearchHome/SearchHomeComponent"
 import ApiTestComponent from "@/components/Test/ApiTestComponent";
 import LoginComponent from "@/components/Login/LoginComponent"
 import SignupComponent from "@/components/Signup/SignupComponent"
-
+import SearchRoomComponent from "@/components/SearchRoom/SearchRoomComponent"
 
 Vue.use(VueRouter);
 const routes = [
@@ -18,7 +18,7 @@ const routes = [
         component: ApiTestComponent,
     },
     {
-        path: '/snus',
+        path: '/lots',
         component: SearchHomeComponent,
     },
     {
@@ -28,6 +28,10 @@ const routes = [
     {
         path: '/signup',
         component: SignupComponent,
+    },
+    {
+        path: `/map`,
+        component: SearchRoomComponent,
     },
 ];
 
