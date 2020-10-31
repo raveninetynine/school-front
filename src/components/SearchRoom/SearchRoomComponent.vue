@@ -15,11 +15,13 @@ export default {
     data:() => ({
         self: this,
         ymaps: window.ymaps,                                // ошибки нет
+        clusterer: null,
         backUrlLocal: "http://127.0.0.1:80/api/",
         backUrlProd: "http://185.251.91.134/api/",
         map: null,  
         zoom: 12,
         center: [55.76, 37.64],
+        
 
         rooms: [],
     }),
@@ -33,7 +35,15 @@ export default {
             this.map = new this.ymaps.Map("map", {
                                                     center: this.center, 
                                                     zoom: this.zoom
+                                            }, {
+                                                searchControlProvider: 'yandex#search'
                                             });
+        
+            this.clusterer = new this.ymaps.Clusterer({
+                clusterDisableClickZoom: true,
+            });
+
+
             console.log("Создал карту")
         },
         async getDataFromApi() {
@@ -51,11 +61,16 @@ export default {
     
         setDots() {
             this.rooms.forEach(room => {
-                this.map.geoObjects.add(new this.ymaps.Placemark([room.long, room.lat], {
-                    }, {
-                        preset: 'islands#blueCircleDotIconWithCaption',
-                 })); 
+                let placeMark = new this.ymaps.Placemark([room.long, room.lat], 
+                                                        {
+                                                            content: room.address,
+                                                            ballonContent: room.address,
+                                                            clusterCaption: "Комната №" + room.id
+                                                        });
+                this.clusterer.add(placeMark);
             });
+
+            this.map.geoObjects.add(this.clusterer);
         }
     },
 }
