@@ -1,15 +1,9 @@
 <template>
   <v-app>
       <HeaderComponent/>
-      <v-main>
-      <v-container>
-        <v-row>
-          <v-col cols="12">
-            <router-view>Router</router-view>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
+      <v-main class="main">
+        <router-view>Router</router-view>
+      </v-main>
 
     <v-footer>
       <span>&copy; 2020 Nedocigan</span>
@@ -31,3 +25,10 @@ export default {
   }),
 };
 </script>
+
+
+<style scoped lang="scss">
+.main{
+  margin-top: 60px;
+}
+</style>

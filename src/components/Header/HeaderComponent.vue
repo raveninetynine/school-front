@@ -61,6 +61,12 @@
 </script>
 
 <style scoped lang="scss">
+    .header{
+        position: fixed;
+        z-index: 9999;
+        background-color: #fff;
+        width: 100%;
+    }
     nav {
         background: '#FFFFFF';
         height: 60px;
