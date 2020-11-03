@@ -25,7 +25,7 @@
 </template>
 
 <script>
- import axios from 'axios';
+import axios from 'axios';
 import card from './Componentss/Cards/Card';
 export default {
     components: {

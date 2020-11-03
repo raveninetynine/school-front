@@ -5,6 +5,7 @@ import SearchHomeComponent from "@/components/SearchHome/SearchHomeComponent"
 import ApiTestComponent from "@/components/Test/ApiTestComponent";
 import LoginComponent from "@/components/Login/LoginComponent"
 import SignupComponent from "@/components/Signup/SignupComponent"
+import SearchRoomMapComponent from "@/components/SearchRoom/SearchRoomMapComponent"
 import SearchRoomComponent from "@/components/SearchRoom/SearchRoomComponent"
 
 Vue.use(VueRouter);
@@ -30,7 +31,11 @@ const routes = [
         component: SignupComponent,
     },
     {
-        path: `/map`,
+        path: '/rooms/map',
+        component: SearchRoomMapComponent,
+    },
+    {
+        path: '/rooms',
         component: SearchRoomComponent,
     },
 ];
