@@ -1,15 +1,10 @@
 <template>
+
 <div class="container-xxl">
     <div class="container">
-  <div class="row align-items-center">
-    <div class="col middle button">
-      <h1>Жильё</h1>
-    </div>
-    <div class="col middle button">
-      <h1>Соседи</h1>
-    </div>
-  </div>
 </div>
+<search>
+</search>
 <card :cards="items">
 </card>
 <div class='align-items-center'>
@@ -27,9 +22,11 @@
 <script>
 import axios from 'axios';
 import card from './Componentss/Cards/Card';
+import search from './Componentss/Search'
 export default {
     components: {
-        card
+        card,
+        search
     },
     mounted(){
       this.testAPI(this.itemLimit,this.curPageNum);
@@ -63,7 +60,7 @@ export default {
              testAPI(lim,offs) {
               axios
 
-              .get(this.backUrlLocal+'lot', {
+              .get(this.backUrlProd+'lot', {
                 params: {
                   limit: lim,
                   offset: offs,
@@ -74,7 +71,7 @@ export default {
                 this.curPageNum = response.data.result.curr_page;
                 this.pageNum = response.data.result.num_pages;
                 this.items = response.data.result.data;
-                console.log(this.curPageNum);
+                console.log(this.items[0]);
               })
 
               .catch((error) => {

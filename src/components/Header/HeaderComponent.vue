@@ -27,6 +27,7 @@
 </template>
 
 <script>
+
     import { mdiHeartOutline, mdiBellOutline } from '@mdi/js';
     export default {
         components: {
@@ -92,21 +93,21 @@
         text-align: center;
         padding-bottom: 0px;
     }
-    nav .menu-item {
-        color: black;
-        padding: 20px 20px;
-        position: relative;
-        text-align: center;
-        border-bottom: 3px solid transparent;
-        display: flex;
-        transition: 0.4s;
-        height: 100%;
-    }
+        nav .menu-item {
+            color: black;
+            padding: 20px 20px;
+            position: relative;
+            text-align: center;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            transition: 0.4s;
+            height: 100%;
+        }
 
-    nav .menu-item.active,
-    nav .menu-item:hover {
-        border-bottom-color: #0000ff;
-    }
+        nav .menu-item.active,
+        nav .menu-item:hover {
+            border-bottom-color: #0000ff;
+        }
 
     nav .menu-item a {
         text-decoration: none;
@@ -153,7 +154,7 @@
         height: 25px;
         width: 210px;
         border-radius: 5px;
-        background-color: blue;
+        background: linear-gradient(207.73deg, #512DE4 58.15%, #7130C4 89.84%);;
         color: white !important;
     }
 
@@ -161,7 +162,7 @@
         height: 25px;
         width: 70px;
         border-radius: 5px;
-        background-color: blue;
+        background: linear-gradient(207.73deg, #512DE4 58.15%, #7130C4 89.84%);;
         color: white !important;
     }
 </style>
